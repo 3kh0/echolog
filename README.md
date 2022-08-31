@@ -12,3 +12,5 @@ Advanced IP logger that sends results in a discord webhook you provide, plain HT
 If you did everything right, you should get messages like this one below!
 
 ![image](https://user-images.githubusercontent.com/58097612/187570681-cc4d17f3-2f3a-4b8a-9432-ec7ca6637a63.png)
+
+You can add a custom front-end aswell or add the javascript to any other webpage too!
