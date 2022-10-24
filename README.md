@@ -1,6 +1,8 @@
 # ECHOLOG
 Advanced IP logger that sends results in a discord webhook you provide, plain HTML, can be hosted on GitHub pages!
 
+If you do decide to use this, please conside giving me a star! It would help out alot!
+
 ## Features
 
 - Logs IP (no way!)
