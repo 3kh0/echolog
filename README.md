@@ -15,6 +15,8 @@ If you do decide to use this, please conside giving me a star! It would help out
 
 ## Usage
 
+**WARNING!** The API is limited, please visit [this link](https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c) and if it says `You have reached your quota for this API in the current billing period.` then go to [this link](https://www.abstractapi.com/api/ip-geolocation-api) and sign up for a free account. Make sure you change the API key in the index.html file, chnage the link to `https://ipgeolocation.abstractapi.com/v1/?api_key=YourKeyHere`
+
 1. Create an fork of this repo
 2. Go into [`index.html`](https://github.com/3kh0/echolog/blob/main/index.html) on the root directory
 3. Go to line 27 and add your discord webhook URL
