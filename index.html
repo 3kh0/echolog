@@ -1,76 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Echolog sample</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <title>Echolog - IP Logger</title>
     <style>
       body {
-        background-color: #f2f2f2;
         font-family: Arial, sans-serif;
-        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
       }
       h1 {
+        font-size: 36px;
         color: #0066cc;
-        text-align: left;
-        margin: 20px 0;
-      }
-      h2 {
-        color: #0066cc;
-        text-align: left;
-        margin: 20px 0;
+        text-align: center;
+        margin-top: 50px;
       }
       p {
         font-size: 18px;
         line-height: 1.5;
-        margin: 20px 0;
+        color: #333;
+        margin: 20px 10px;
+      }
+      a {
+        color: #333;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: blue;
+      }
+      .button {
+        text-decoration: none;
+        display: block;
+        width: 25%;
+        height: 40px;
+        background-color: #0066cc;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 50px;
+        transition: background-color 0.3s ease-in-out;
+      }
+      .button:hover {
+        background-color: #004080;
+        color: #fff;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <h1>Echolog sample</h1>
-    <p>Quick and simple IP logger that gets results from a public and open source API, no server needed, just plain HTML and JavaScript fun.</p>
-    <p>This is a example page with Echolog, no data is sent to any servers. You can use the "echolog" variable to access information from the logger.</p>
-    <h2>Raw code</h2>
-    <pre><code style="word-wrap: break-word;overflow-wrap: break-word;white-space: pre-wrap;font-size: 16px;background-color: #e7ecf0;">Loading...</code></pre>
-    <script>
-      let echolog = {};
-      // here is the fun
-      fetch("https://wtfismyip.com/json")
-        .then((response) => response.json())
-        .then((data) => {
-          let echolog = {
-            ipAddress: data.YourFuckingIPAddress,
-            location: data.YourFuckingLocation,
-            hostname: data.YourFuckingHostname,
-            isp: data.YourFuckingISP,
-            city: data.YourFuckingCity,
-            country: data.YourFuckingCountry,
-            countryCode: data.YourFuckingCountryCode,
-            userAgent: navigator.userAgent,
-            windowProp: Object.keys(window).length,
-            windowWidth: window.innerWidth,
-            windowHeight: window.innerHeight,
-            windowRatio: window.innerWidth / window.innerHeight,
-            screenWidth: window.screen.availWidth,
-            screenHeight: window.screen.availHeight,
-            screenRatio: window.screen.availWidth / window.screen.availHeight,
-            DPI: window.devicePixelRatio,
-            colorDepth: window.screen.colorDepth,
-            orientation: window.screen.orientation.type,
-            orientationAngle: window.screen.orientation.angle,
-            os: navigator.platform,
-            threads: navigator.hardwareConcurrency,
-            memory: navigator.deviceMemory,
-            systemLanguages: navigator.languages.join(", "),
-            languages: navigator.language,
-          };
-
-          var codeBlock = document.querySelector("code");
-          codeBlock.innerText = JSON.stringify(echolog, null, 1);
-          hljs.highlightAll();
-        })
-        .catch((error) => console.error(error));
-    </script>
+    <h1>Echolog - IP Logger</h1>
+    <p>Echolog is a simple and customizable IP logger written in plain JavaScript, which utilizes a free and open-source API provided by wtfismyip.com to collect information about the user's device and environment.</p>
+    <p>For more information on Echolog, including how to use it in your project and how to contribute to the project, please check out the <a href="https://github.com/3kh0/echolog">GitHub repository</a>.</p>
+    <a href="./tests/sample.html" class="button">See it in action</a>
+    <p style="text-align:center;"><small>Made by <a target="_blank" href="https://github.com/3kh0">3kh0</a></small></p>
   </body>
 </html>

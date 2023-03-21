@@ -1,30 +1,50 @@
 # ECHOLOG
-Advanced IP logger that sends results in a discord webhook you provide, plain HTML, can be hosted on GitHub pages!
+Echolog is a simple and customizable IP logger written in plain JavaScript, which utilizes a free and open-source API provided by wtfismyip.com to collect information about the user's device and environment.
 
 If you do decide to use this, please conside giving me a star! It would help out alot!
 
-## Features
+## Disclaimer
 
-- Logs IP (no way!)
-- Retrives location
-- Logs ISP
-- Detects VPNs
-- Fast and Easy
-- Hidden
-- Customizable
+**PLEASE READ BEFORE USE**
+
+This software is intended for legal and ethical purposes only. The use of Echolog without the end-user's consent may be illegal in many countries. By using Echolog, you assume all legal responsibilities and risks associated with the use of this software. Echolog is provided "as-is" and the author makes no guarantees or warranties regarding its performance, reliability, or legality.
+
+## Features
+Echolog collects the following information about the user:
+- IP address
+- Location
+- Hostname
+- Internet service provider (ISP)
+- City
+- Country
+- Country code
+- User agent
+- `window` properties
+- Window width, height, and aspect ratio
+- Screen width, height, and aspect ratio
+- Dots per inch (DPI)
+- Color depth
+- Screen orientation and angle
+- Operating system
+- CPU threads
+- Memory (in GB)
+- System languages
+- Current Language
+
+## Why use Echolog?
+
+Echolog is a lightweight and customizable solution for logging IP addresses and collecting different browser data. It requires no backend, making it easy to integrate into any project. Additionally, Echolog allows developers to customize the information collected to fit their specific needs.
 
 ## Usage
 
-**WARNING!** The API is limited, please visit [this link](https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c) and if it says `You have reached your quota for this API in the current billing period.` then go to [this link](https://www.abstractapi.com/api/ip-geolocation-api) and sign up for a free account. Make sure you change the API key in the index.html file, chnage the link to `https://ipgeolocation.abstractapi.com/v1/?api_key=YourKeyHere`
+This project uses [wtfismyip](https://wtfismyip.com/) as a base to collect the IP, but you can use any API that returns the information you want, you just have to update the `echolog` object to handle it. 
 
-1. Create an fork of this repo
-2. Go into [`index.html`](https://github.com/3kh0/echolog/blob/main/index.html) on the root directory
-3. Go to line 27 and add your discord webhook URL
-4. Deploy the repo and get it up and running, visit the page to test if it works.
-5. Send it to your friends! If this works, [:star: this repo](https://github.com/3kh0/echolog/stargazers)! and give [me a follow](https://github.com/3kh0?tab=followers)
+You can look in the [tests](tests) folder for examples on how to implent this into your own project.
 
-If you did everything right, you should get messages like this one below! (Done with a proxy)
+## Contributing
 
-![image](https://user-images.githubusercontent.com/58097612/187704877-c81af3f1-d2e0-425f-a632-61859f5b1cbc.png)
+If you'd like to contribute to Echolog, feel free to fork the repository and submit a pull request. Any contributions, bug reports, or feature requests are greatly appreciated.
 
-You can add a custom front-end aswell or add the javascript to any other webpage too!
+## Credits
+
+Echolog was created by 3kh0 and is based on the [wtfismyip](https://wtfismyip.com/) API.

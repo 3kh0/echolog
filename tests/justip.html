@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My IP Address</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        text-align: center;
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This you?</h1>
+    <h2 id="ip">Hold on just a sec</h2>
+    <p>Built using <a style="color: #fff;" href="https://github.com/3kh0/echolog" target="_blank">echolog</a></p>
+    <script>
+      let echolog = {};
+      // here is the fun
+      fetch("https://wtfismyip.com/json")
+        .then((response) => response.json())
+        .then((data) => {
+          let echolog = {
+            ipAddress: data.YourFuckingIPAddress,
+          };
+
+          var ip = document.getElementById("ip")
+          ip.innerText = echolog.ipAddress
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
+</html>
