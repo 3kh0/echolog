@@ -39,7 +39,7 @@ Echolog is a lightweight and customizable solution for logging IP addresses and 
 
 This project uses [wtfismyip](https://wtfismyip.com/) as a base to collect the IP, but you can use any API that returns the information you want, you just have to update the `echolog` object to handle it. 
 
-You can look in the [tests](tests) folder for examples on how to implent this into your own project.
+You can look in the [`tests`](tests) folder for examples on how to implent this into your own project.
 
 ## Contributing
 
