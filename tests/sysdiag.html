@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>System Diagnosis</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: #f7f7f7;
+      }
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        margin: 30px 0 20px;
+      }
+      p {
+        margin: 20px 0;
+      }
+      pre {
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 4px;
+        background-color: #fff;
+        white-space: pre-wrap;
+      }
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0069d9;
+      }
+      code {
+        font-family: monospace;
+        font-size: 14px;
+        color: #333;
+      }
+      @media screen and (max-width: 600px) {
+        h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>System Diagnosis</h1>
+    <p>This page displays some system information for troubleshooting.</p>
+    <pre id="obfuscated-echolog"><code style="word-wrap: break-word; overflow-wrap: break-word; white-space: pre-wrap; font-size: 16px; background-color: #e7ecf0;">Loading...</code></pre>
+    <button id="button" onclick="copyToClipboard(document.getElementById('obfuscated-echolog'))">Copy data</button>
+    <script>
+      function copyToClipboard(element) {
+        let textarea = document.createElement("textarea");
+        textarea.value = element.textContent;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        var buttonClick = document.getElementById("button");
+        buttonClick.style.backgroundColor = "green";
+        buttonClick.innerText = "Copied!";
+        const myTimeout = setTimeout(reset, 2000);
+      }
+      function reset() {
+        var buttonClick = document.getElementById("button");
+        buttonClick.style.backgroundColor = "#007bff";
+        buttonClick.innerText = "Copy data";
+      }
+      let obfuscatedEcholog;
+      let echolog = {};
+      // here is the fun
+      fetch("https://wtfismyip.com/json")
+        .then((response) => response.json())
+        .then((data) => {
+          let echolog = {
+            ipAddress: data.YourFuckingIPAddress,
+            location: data.YourFuckingLocation,
+            hostname: data.YourFuckingHostname,
+            isp: data.YourFuckingISP,
+            city: data.YourFuckingCity,
+            country: data.YourFuckingCountry,
+            countryCode: data.YourFuckingCountryCode,
+            userAgent: navigator.userAgent,
+            windowProp: Object.keys(window).length,
+            windowWidth: window.innerWidth,
+            windowHeight: window.innerHeight,
+            windowRatio: window.innerWidth / window.innerHeight,
+            screenWidth: window.screen.availWidth,
+            screenHeight: window.screen.availHeight,
+            screenRatio: window.screen.availWidth / window.screen.availHeight,
+            DPI: window.devicePixelRatio,
+            colorDepth: window.screen.colorDepth,
+            orientation: window.screen.orientation.type,
+            orientationAngle: window.screen.orientation.angle,
+            os: navigator.platform,
+            threads: navigator.hardwareConcurrency,
+            memory: navigator.deviceMemory,
+            systemLanguages: navigator.languages.join(", "),
+            languages: navigator.language,
+          };
+          obfuscatedEcholog = window.btoa(JSON.stringify(echolog));
+          var codeBlock = document.querySelector("code");
+          codeBlock.innerText = obfuscatedEcholog;
+          hljs.highlightAll();
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
+</html>

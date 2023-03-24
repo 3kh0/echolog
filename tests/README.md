@@ -6,6 +6,7 @@ This folder contains several examples of how to use Echolog, a simple and custom
 - [`sample.html`](sample.html): This example has all the info in a json object ready for use, it shows it to the user.
 - [`justip.html`](justip.html): This example demonstrates how to customize the information collected by Echolog to fit your specific needs. This only collects the IP, nothing else and shows it to the user
 - [`hidden.html`](hidden.html): This example showcases how you can hide the code and the user would have a hard time knowing. This also sends the data to a discord webhook for later analysis.
+- [`sysdiag.html`](sysdiag.html): This example shows the results of the echolog object but it encoded with base64 so the end user does not know.
 
 ## Get started
 
