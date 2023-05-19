@@ -50,6 +50,7 @@ There are three main ways to protect yourself from getting your IP being pulled,
 
 - **Extensions**: Using different extensions you can most of these IP loggers. I would recommend installing [NoScript](https://noscript.net/), [Privacy Badger](https://privacybadger.org/), and [uBlock Origin](https://ublockorigin.com/). These are all good extensions that keep you safe online.
 - **VPN**: Using a VPN service can hide your IP address and encrypt your internet traffic. If you would like to try a VPN, I recommend surfshark, get a sweet discount [with this referral link](https://surfshark.club/friend/gFRhb6Dq). You get a free month and I get a free month, it is a win win.
+- **Web Proxy** Using a web proxy service can also hide your IP address and encrypt your internet traffic. You can find proxies by searching up "web proxy" on a search engine.
 - **Tor**: Using the Tor browser is the ultimate way, it masks your IP address and encrypts your internet traffic through a series of servers. You will notice that speed are much slower than normal, but if you are getting targeted constantly, this should do it.
 - **No internet**: Hey they can't IP log you if you don't have a IP to log :)
 
